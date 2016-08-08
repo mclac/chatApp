@@ -1,0 +1,19 @@
+<p>Currency: {{ 123456 | currency }}</p>
+<div>
+    <ul>
+        <li ng-repeat="post in posts | orderBy:'-date'" ng-model="post">
+            <strong>{{post.username}}</strong>
+            <span>{{post.body}}</span>
+            <button type="submit" ng-click="edit(post)">Edit</button>
+            <button type="submit" ng-click="delete(post)">Delete</button>
+            <button type="submit" ng-click="findComment(post)">getComment</button>
+        </li>
+    </ul>
+</div>
+
+<form> 
+    <input type="text" name="username" placeholder="username" ng-model="commentUser">
+    <input type="text" name="post" placeholder="body" ng-model="commentBody">
+    <button type="submit" ng-show="postEditing" ng-click="postComment()"> Submit </button>
+    <button id="editButton" type="submit" ng-show="!postEditing" ng-click="submitEdit()"> Edit </button>
+</form>
